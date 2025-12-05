@@ -1,1 +1,2 @@
-# Hello this is my first commit
+# A Simple note taking app
+
