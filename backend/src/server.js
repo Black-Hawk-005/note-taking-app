@@ -16,7 +16,7 @@ app.use(rateLimiter);
 
 
 app.use((req ,res, next) => {
-  console.log("We just got a new req");
+  // console.log("We just got a new req");
   next();
 });
 
