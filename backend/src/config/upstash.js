@@ -9,4 +9,4 @@ const ratelimit = new Ratelimit({
 	limiter: Ratelimit.slidingWindow(100, "60 s"),
 });
 
-export default ratelimit;
+export default ratelimit; 
