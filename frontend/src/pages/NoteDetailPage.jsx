@@ -29,9 +29,37 @@ const NoteDetailPage = () => {
     fetchNote();
   }, [id]);
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
+    if (! window.confirm("Are you sure want to delete this note")) return;
 
+    try {
+      console.log(id);
+      await api.delete(`/notes/${id}`);
+      toast.success("Note deleted");
+      navigate('/');
+    } catch (error) {
+      console.log("Error deleting the note: ", error);
+      toast.error("Failed to delete the note");
+    }
   }
+
+  const handleSave = async () => {
+    if (!note.title.trim() || !note.content.trim()) {
+      toast.error("Please add a title or content");
+      return;
+    }
+    setSaving(true);
+    try {
+      await api.put(`/notes/${id}`, note);
+      toast.success("Note updated successfully");
+      navigate('/');
+    } catch (error) {
+      console.log("Error updating the note");
+      toast.error("Failed to update the note");
+    } finally {
+      setSaving(false);
+    }
+  };
 
   if (loading) {
     return (
@@ -67,6 +95,24 @@ const NoteDetailPage = () => {
                   value={note.title}
                   onChange={(e) => setNote({ ...note, title: e.target.value })} 
                 />
+              </div>
+
+              <div className="form-control mb-4">
+                <label className="label">
+                  <span className="label-text">Content</span>
+                </label>
+                <textarea
+                  placeholder="Write your notes here..." 
+                  className="textarea textarea-bordered h-32" 
+                  value={note.content}
+                  onChange={(e) => setNote({ ...note, content: e.target.value})} 
+                />
+              </div>
+
+              <div className="card-actions justify-end">
+                <button className="btn btn-primary" disabled={saving} onClick={handleSave}>
+                {saving ? 'Saving...' : 'Save Changes'}
+                </button>
               </div>
             </div>
           </div>
