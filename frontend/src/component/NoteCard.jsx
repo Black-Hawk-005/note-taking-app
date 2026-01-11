@@ -35,8 +35,8 @@ export const NoteCard = ({note, setNotes}) => {
 				<button className='btn btn-ghost btn-xs text-warning'>
 					<PenSquareIcon className='size-5' ></PenSquareIcon>
 				</button>
-				<button className='btn btn-ghost btn-xs text-error'>
-					<Trash2Icon className='size-5'onClick={(e) => handleDelete(e, note._id)}/>
+				<button className='btn btn-ghost btn-xs text-error' onClick={(e) => handleDelete(e, note._id)}>
+					<Trash2Icon className='size-5' />
 				</button>
 			</div>
     </div>
