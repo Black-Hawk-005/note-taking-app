@@ -59,8 +59,8 @@ note-taking-app/
 
 1. Clone the repository
 ```bash
-git clone <your-repo-url>
-cd note-taking-app
+git clone "https://github.com/Black-Hawk-005/notezy"
+cd notezy
 ```
 
 2. Install dependencies for both frontend and backend
