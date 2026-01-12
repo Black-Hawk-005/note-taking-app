@@ -4,7 +4,7 @@ A modern, full-stack note-taking application built with React and Node.js. Notez
 
 ## Live Demo
 
-**Deployed Application:** [https://notezy-4zic.onrender.com]
+**Deployed Application:** [Notezy🔗](https://notezy-4zic.onrender.com)
 
 ## Features
 
